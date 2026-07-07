@@ -109,7 +109,7 @@ interface AdditionalCharge {
   amount: number;
 }
 
-export default function Quotations() {
+export default function Analytics() {
   // Tabs: 'Price Matrix' or 'New Quotation'
   const [activeTab, setActiveTab] = useState<'matrix' | 'quote'>('matrix');
 

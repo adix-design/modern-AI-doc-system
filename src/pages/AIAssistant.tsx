@@ -36,7 +36,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import { PageId } from '../types';
-import DottedWave from './DottedWave';
+import DottedWave from '../components/DottedWave';
 
 interface AIAssistantProps {
   setActivePage?: (page: PageId) => void;

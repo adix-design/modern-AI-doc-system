@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Suspense, lazy } from 'react';
 
-import Layout from "./layouts/Layout";
+import MainLayout from "./layouts/MainLayout";
 
 // Lazy load page components
 const Dashboard = lazy(() => import("./pages/Dashboard"));
@@ -9,13 +9,13 @@ const Shipments = lazy(() => import("./pages/Shipments"));
 const Customers = lazy(() => import("./pages/Customers"));
 const Documents = lazy(() => import("./pages/Documents"));
 const Settings = lazy(() => import("./pages/Settings"));
+const Finance = lazy(() => import("./pages/Finance"));
+const Analytics = lazy(() => import("./pages/Analytics"));
+const AIAssistant = lazy(() => import("./pages/AIAssistant"));
 
-// Other pages from components folder
+// Other components
 const FleetDrivers = lazy(() => import("./components/FleetDrivers"));
 const CalendarPage = lazy(() => import("./components/CalendarPage"));
-const Finance = lazy(() => import("./components/Finance"));
-const Quotations = lazy(() => import("./components/Quotations"));
-const AIAssistant = lazy(() => import("./components/AIAssistant"));
 const TodoPage = lazy(() => import("./components/TodoPage"));
 
 // A high-fidelity premium skeleton loader fallback
@@ -34,18 +34,18 @@ export default function App() {
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
         <Routes>
-          <Route element={<Layout />}>
+          <Route element={<MainLayout />}>
             <Route path="/" element={<Dashboard />} />
             <Route path="/shipments" element={<Shipments />} />
             <Route path="/customers" element={<Customers />} />
             <Route path="/documents" element={<Documents />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/finance" element={<Finance />} />
+            <Route path="/quotations" element={<Analytics />} />
+            <Route path="/ai-assistant" element={<AIAssistant />} />
             
             <Route path="/fleet-drivers" element={<FleetDrivers />} />
             <Route path="/calendar" element={<CalendarPage />} />
-            <Route path="/finance" element={<Finance />} />
-            <Route path="/quotations" element={<Quotations />} />
-            <Route path="/ai-assistant" element={<AIAssistant />} />
             <Route path="/todo" element={<TodoPage />} />
           </Route>
         </Routes>

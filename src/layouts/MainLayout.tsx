@@ -6,7 +6,7 @@ import LoginScreen from '../components/LoginScreen';
 import MascotAssistant from '../components/MascotAssistant';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
-export default function Layout() {
+export default function MainLayout() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => {
     return localStorage.getItem('vanguard_auth') === 'true';
   });
