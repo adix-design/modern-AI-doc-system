@@ -1,110 +1,55 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Suspense, lazy } from 'react';
 
-import { useState, useEffect } from 'react';
-import { PageId } from './types';
-import Sidebar from './components/Sidebar';
-import MainPanel from './components/MainPanel';
-import PlaceholderPage from './components/PlaceholderPage';
-import LoginScreen from './components/LoginScreen';
-import { motion } from 'motion/react';
-import MascotAssistant from './components/MascotAssistant';
+import Layout from "./layouts/Layout";
+
+// Lazy load page components
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Shipments = lazy(() => import("./pages/Shipments"));
+const Customers = lazy(() => import("./pages/Customers"));
+const Documents = lazy(() => import("./pages/Documents"));
+const Settings = lazy(() => import("./pages/Settings"));
+
+// Other pages from components folder
+const FleetDrivers = lazy(() => import("./components/FleetDrivers"));
+const CalendarPage = lazy(() => import("./components/CalendarPage"));
+const Finance = lazy(() => import("./components/Finance"));
+const Quotations = lazy(() => import("./components/Quotations"));
+const AIAssistant = lazy(() => import("./components/AIAssistant"));
+const TodoPage = lazy(() => import("./components/TodoPage"));
+
+// A high-fidelity premium skeleton loader fallback
+const PageLoader = () => (
+  <div className="flex flex-col items-center justify-center min-h-[400px] text-white/40 space-y-4 animate-pulse">
+    <div className="relative w-10 h-10">
+      <div className="absolute inset-0 rounded-full border-2 border-white/5"></div>
+      <div className="absolute inset-0 rounded-full border-2 border-[#D946C4] border-t-transparent animate-spin"></div>
+    </div>
+    <span className="text-xs font-mono tracking-wider uppercase text-white/60">Loading Workspace...</span>
+  </div>
+);
 
 export default function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(() => {
-    return localStorage.getItem('vanguard_auth') === 'true';
-  });
-  const [activePage, setActivePage] = useState<PageId>('dashboard');
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(() => {
-    if (typeof window !== 'undefined') {
-      return window.innerWidth >= 768 && window.innerWidth < 1024;
-    }
-    return false;
-  });
-  const [isMobileSidebarOpen, setIsMobileSidebarOpen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 768 && window.innerWidth < 1024) {
-        setIsSidebarCollapsed(true);
-      }
-    };
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  useEffect(() => {
-    // Apply background glow configuration
-    const intensity = localStorage.getItem('vanguard_glow_intensity') || 'balanced';
-    const root = document.documentElement;
-    if (intensity === 'subtle') {
-      root.style.setProperty('--bg-radial-opacity-1', '0.15');
-      root.style.setProperty('--bg-radial-opacity-2', '0.25');
-      root.style.setProperty('--bg-radial-opacity-3', '0.55');
-      root.style.setProperty('--bg-glow-opacity', '0.05');
-    } else if (intensity === 'vivid') {
-      root.style.setProperty('--bg-radial-opacity-1', '0.55');
-      root.style.setProperty('--bg-radial-opacity-2', '0.75');
-      root.style.setProperty('--bg-radial-opacity-3', '0.95');
-      root.style.setProperty('--bg-glow-opacity', '0.20');
-    } else { // balanced
-      root.style.setProperty('--bg-radial-opacity-1', '0.35');
-      root.style.setProperty('--bg-radial-opacity-2', '0.55');
-      root.style.setProperty('--bg-radial-opacity-3', '0.85');
-      root.style.setProperty('--bg-glow-opacity', '0.10');
-    }
-  }, []);
-
-  const handleLogin = () => {
-    localStorage.setItem('vanguard_auth', 'true');
-    setIsAuthenticated(true);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('vanguard_auth');
-    setIsAuthenticated(false);
-  };
-
-  if (!isAuthenticated) {
-    return <LoginScreen onLogin={handleLogin} />;
-  }
-
   return (
-    <div className="relative min-h-screen bg-[#0A0A14] font-sans overflow-x-hidden select-none text-[#F2EEF9]">
-      {/* 1. Cinematic subtle fine grain/noise overlay */}
-      <div className="grain-overlay" />
-
-      {/* 2. Page entry ambient highlight overlay (blooming violet sunset light at top center) */}
-      <div 
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-7xl h-[32rem] blur-[140px] rounded-full pointer-events-none z-0 transition-all duration-500" 
-        style={{ backgroundColor: 'rgba(217, 70, 196, var(--bg-glow-opacity, 0.10))' }}
-      />
-
-      {/* 3. Slide-in Desktop Sidebar or Mobile Drawer */}
-      <Sidebar
-        activePage={activePage}
-        setActivePage={setActivePage}
-        isCollapsed={isSidebarCollapsed}
-        setIsCollapsed={setIsSidebarCollapsed}
-        isMobileOpen={isMobileSidebarOpen}
-        setIsMobileOpen={setIsMobileSidebarOpen}
-        onLogout={handleLogout}
-      />
-
-      {/* 4. Main Panel Wrapper (Floating glass dashboard and page content canvas) */}
-      <MainPanel
-        activePage={activePage}
-        setActivePage={setActivePage}
-        isSidebarCollapsed={isSidebarCollapsed}
-        setIsMobileOpen={setIsMobileSidebarOpen}
-      >
-        <PlaceholderPage id={activePage} setActivePage={setActivePage} />
-      </MainPanel>
-
-      {/* 5. Floating Mascot Assistant Widget */}
-      <MascotAssistant activePage={activePage} setActivePage={setActivePage} />
-    </div>
+    <BrowserRouter>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/shipments" element={<Shipments />} />
+            <Route path="/customers" element={<Customers />} />
+            <Route path="/documents" element={<Documents />} />
+            <Route path="/settings" element={<Settings />} />
+            
+            <Route path="/fleet-drivers" element={<FleetDrivers />} />
+            <Route path="/calendar" element={<CalendarPage />} />
+            <Route path="/finance" element={<Finance />} />
+            <Route path="/quotations" element={<Quotations />} />
+            <Route path="/ai-assistant" element={<AIAssistant />} />
+            <Route path="/todo" element={<TodoPage />} />
+          </Route>
+        </Routes>
+      </Suspense>
+    </BrowserRouter>
   );
 }

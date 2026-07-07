@@ -31,7 +31,7 @@ import { motion, AnimatePresence } from 'motion/react';
 import { PageId } from '../types';
 
 interface SettingsProps {
-  setActivePage: (page: PageId) => void;
+  setActivePage?: (page: PageId) => void;
 }
 
 interface ProfileState {

@@ -47,7 +47,7 @@ interface CalendarEvent {
 }
 
 interface CalendarPageProps {
-  setActivePage: (page: PageId) => void;
+  setActivePage?: (page: PageId) => void;
 }
 
 // Fallback clients if clients database is empty

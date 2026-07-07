@@ -58,7 +58,7 @@ interface Shipment {
 }
 
 interface ShipmentsProps {
-  setActivePage: (page: PageId) => void;
+  setActivePage?: (page: PageId) => void;
 }
 
 const DEFAULT_TRUCK_RATES: Record<string, number> = {
