@@ -2,17 +2,17 @@ import React, { Suspense, lazy } from 'react';
 import { PageId } from '../types';
 
 // Lazy load page components for route-based code splitting
-const Dashboard = lazy(() => import('./Dashboard'));
-const ShipmentsPage = lazy(() => import('./ShipmentsPage'));
+const Dashboard = lazy(() => import('../pages/Dashboard'));
+const Shipments = lazy(() => import('../pages/Shipments'));
 const FleetDrivers = lazy(() => import('./FleetDrivers'));
 const CalendarPage = lazy(() => import('./CalendarPage'));
-const Clients = lazy(() => import('./Clients'));
-const Documents = lazy(() => import('./Documents'));
+const Customers = lazy(() => import('../pages/Customers'));
+const Documents = lazy(() => import('../pages/Documents'));
 const Finance = lazy(() => import('./Finance'));
 const Quotations = lazy(() => import('./Quotations'));
 const AIAssistant = lazy(() => import('./AIAssistant'));
 const TodoPage = lazy(() => import('./TodoPage'));
-const SettingsPage = lazy(() => import('./SettingsPage'));
+const Settings = lazy(() => import('../pages/Settings'));
 
 interface PlaceholderPageProps {
   id: PageId;
@@ -39,7 +39,7 @@ export default function PlaceholderPage({ id, setActivePage }: PlaceholderPagePr
             return <Dashboard />;
 
           case 'shipments':
-            return <ShipmentsPage setActivePage={setActivePage || (() => {})} />;
+            return <Shipments setActivePage={setActivePage || (() => {})} />;
 
           case 'fleet-drivers':
             return <FleetDrivers setActivePage={setActivePage} />;
@@ -48,7 +48,7 @@ export default function PlaceholderPage({ id, setActivePage }: PlaceholderPagePr
             return <CalendarPage setActivePage={setActivePage || (() => {})} />;
 
           case 'clients':
-            return <Clients />;
+            return <Customers />;
 
           case 'documents':
             return <Documents />;
@@ -66,7 +66,7 @@ export default function PlaceholderPage({ id, setActivePage }: PlaceholderPagePr
             return <TodoPage setActivePage={setActivePage} />;
 
           case 'settings':
-            return <SettingsPage setActivePage={setActivePage || (() => {})} />;
+            return <Settings setActivePage={setActivePage || (() => {})} />;
 
           default:
             return (

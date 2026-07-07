@@ -57,7 +57,7 @@ interface Shipment {
   activityLog: ShipmentActivity[];
 }
 
-interface ShipmentsPageProps {
+interface ShipmentsProps {
   setActivePage: (page: PageId) => void;
 }
 
@@ -194,7 +194,7 @@ const INITIAL_SHIPMENTS: Shipment[] = [
   }
 ];
 
-export default function ShipmentsPage({ setActivePage }: ShipmentsPageProps) {
+export default function Shipments({ setActivePage }: ShipmentsProps) {
   // --- STATE ---
   const [shipments, setShipments] = useState<Shipment[]>(() => {
     const saved = localStorage.getItem('vanguard_shipments');

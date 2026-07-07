@@ -30,7 +30,7 @@ import {
 import { motion, AnimatePresence } from 'motion/react';
 import { PageId } from '../types';
 
-interface SettingsPageProps {
+interface SettingsProps {
   setActivePage: (page: PageId) => void;
 }
 
@@ -75,7 +75,7 @@ interface AiState {
   connectedWhatsapp: string;
 }
 
-export default function SettingsPage({ setActivePage }: SettingsPageProps) {
+export default function Settings({ setActivePage }: SettingsProps) {
   // Navigation Sections definition
   const sections = [
     { id: 'profile', label: 'Profile', icon: User },

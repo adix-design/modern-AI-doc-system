@@ -270,7 +270,7 @@ const INITIAL_COMPANIES: Company[] = [
   }
 ];
 
-export default function Clients() {
+export default function Customers() {
   const [companies, setCompanies] = useState<Company[]>(() => {
     const saved = localStorage.getItem('vanguard_companies');
     return saved ? JSON.parse(saved) : INITIAL_COMPANIES;
