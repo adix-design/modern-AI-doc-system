@@ -380,7 +380,7 @@ export default function MainPanel({
           id="main-glass-panel"
           initial={{ opacity: 0, y: 15, scale: 0.995 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 400, delay: 100, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.4, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           className="flex-1 bg-[rgba(217,70,196,0.05)] backdrop-blur-xl border border-[rgba(217,70,196,0.15)] rounded-2xl shadow-2xl p-4 sm:p-6 lg:p-8 xl:p-10 relative flex flex-col overflow-hidden min-h-[calc(100vh-140px)]"
         >
           {/* Subtle inside highlights at the corners */}

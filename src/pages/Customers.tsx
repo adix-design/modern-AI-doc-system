@@ -694,7 +694,7 @@ export default function Customers() {
                     key={company.id}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 250, delay: cIndex * 35 }}
+                    transition={{ duration: 0.25, delay: cIndex * 0.035 }}
                     className="bg-white/4 border border-white/8 rounded-2xl overflow-hidden shadow-md group/card transition-all duration-300"
                   >
                     {/* Collapsible Company Card Header */}
@@ -748,7 +748,7 @@ export default function Customers() {
                           initial={{ height: 0, opacity: 0 }}
                           animate={{ height: 'auto', opacity: 1 }}
                           exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 250, ease: 'easeInOut' }}
+                          transition={{ duration: 0.25, ease: 'easeInOut' }}
                           className="overflow-hidden border-t border-white/5"
                         >
                           <div className="overflow-x-auto">
@@ -1107,7 +1107,7 @@ export default function Customers() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 200 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setSelectedClient(null)}
               className="fixed inset-0 bg-stone-950/60 backdrop-blur-sm z-50 cursor-pointer"
             />

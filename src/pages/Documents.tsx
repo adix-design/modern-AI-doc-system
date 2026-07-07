@@ -1509,7 +1509,7 @@ export default function Documents() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 150 }}
+                    transition={{ duration: 0.15 }}
                     className="flex flex-col h-full justify-between space-y-5"
                   >
                     {/* Invoice Letterhead */}
@@ -1657,7 +1657,7 @@ export default function Documents() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 150 }}
+                    transition={{ duration: 0.15 }}
                     className="flex flex-col h-full justify-between space-y-4"
                   >
                     {/* Bilty Letterhead */}
@@ -1755,7 +1755,7 @@ export default function Documents() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 150 }}
+                    transition={{ duration: 0.15 }}
                     className="flex flex-col h-full justify-between space-y-6"
                   >
                     {/* Money Receipt Letterhead */}

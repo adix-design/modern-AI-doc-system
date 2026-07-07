@@ -353,7 +353,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 250, delay: 0 }}
+          transition={{ duration: 0.25, delay: 0 }}
           className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 transition-all duration-300 relative group overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex items-center justify-between">
@@ -384,7 +384,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 250, delay: 30 }}
+          transition={{ duration: 0.25, delay: 0.03 }}
           className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 transition-all duration-300 relative overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex items-center justify-between">
@@ -407,7 +407,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 250, delay: 60 }}
+          transition={{ duration: 0.25, delay: 0.06 }}
           className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 transition-all duration-300 relative overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)]"
         >
           <div className="flex items-center justify-between">
@@ -428,7 +428,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 250, delay: 90 }}
+          transition={{ duration: 0.25, delay: 0.09 }}
           className="bg-white/5 border border-white/10 rounded-2xl p-5 hover:bg-white/8 transition-all duration-300 relative overflow-hidden shadow-[0_4px_24px_rgba(0,0,0,0.1)] ring-1 ring-[#D946C4]/20"
         >
           <div className="flex items-center justify-between">
@@ -457,7 +457,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 300, delay: 120 }}
+          transition={{ duration: 0.3, delay: 0.12 }}
           className="lg:col-span-6 bg-white/4 border border-white/8 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)] relative"
         >
           <div className="flex items-center justify-between mb-6">
@@ -593,7 +593,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 300, delay: 140 }}
+          transition={{ duration: 0.3, delay: 0.14 }}
           className="lg:col-span-4 bg-white/4 border border-white/8 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)] flex flex-col justify-between"
         >
           <div>
@@ -638,7 +638,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 300, delay: 160 }}
+          transition={{ duration: 0.3, delay: 0.16 }}
           className="lg:col-span-6 bg-white/4 border border-white/8 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
         >
           <div className="flex items-center justify-between mb-4">
@@ -736,7 +736,7 @@ export default function Dashboard() {
         <motion.div 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 300, delay: 180 }}
+          transition={{ duration: 0.3, delay: 0.18 }}
           className="lg:col-span-4 bg-white/4 border border-white/8 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)] flex flex-col justify-between"
         >
           <div>
@@ -797,7 +797,7 @@ export default function Dashboard() {
       <motion.div 
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 300, delay: 200 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
         className="bg-white/4 border border-white/8 rounded-2xl p-6 shadow-[0_8px_32px_rgba(0,0,0,0.1)]"
       >
         <div className="mb-4">
