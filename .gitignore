@@ -1,20 +1,29 @@
 node_modules/
 dist/
 build/
-.env
-.env.*
+.env*
+!.env.example
 *.log
 
-coverage/
-
+# Sensitive/Business Data & Documents
 uploads/
 generated-pdfs/
-generated-documents/
+receipts/
+invoices/
 storage/
 runtime-data/
-
+database/
 *.db
 *.sqlite
+*.pdf
+*.zip
+*.tar.gz
+*.tgz
+*.rar
+*backup*
 
+# Editor & OS files
 .vscode/
 .DS_Store
+tmp/
+temp/
