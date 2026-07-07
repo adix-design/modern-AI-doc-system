@@ -1,0 +1,6 @@
+{
+  "name": "Logistics Command Center",
+  "description": "A premium command-center dashboard for trucking and logistics operators to manage shipments, clients, drivers, and settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
